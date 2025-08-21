@@ -9,3 +9,5 @@ Nuwe Bryant Nyero - \[Mbarara University of Science and Technology], \[Mbarara],
 Kimberley Clare Williams - \[Neuroscience Institute], \[University of Cape Town], \[Cape Town], \[South Africa]
 
 Wirba Amabel Ginjeh -\[Cameroon Baptist Convention], \[Douala], \[Cameroon]
+
+Usman Mohammed Mahmud - \[Federal Teaching Hospital], \[Gombe], \[Nigeria]
