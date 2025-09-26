@@ -1,0 +1,165 @@
+# fMRI Preprocessing and Analysis Pipeline Dependencies
+# CONNExIN 2025 - Assignment 6
+# Last updated: September 2025
+
+# ========================================
+# CORE NEUROIMAGING SOFTWARE (REQUIRED)
+# ========================================
+
+# FSL (FMRIB Software Library) - Version 6.0.7 specifically required
+# Used for: Motion correction, slice timing, brain extraction, registration, 
+#           smoothing, filtering, statistical analysis
+FSL==6.0.7
+# Installation: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation
+# License: Custom FSL license (free for academic use)
+
+# dcm2niix - DICOM to NIfTI conversion tool
+# Used for: Converting raw DICOM files to BIDS format
+dcm2niix>=1.0.20200427
+# Installation: conda install -c conda-forge dcm2niix
+# GitHub: https://github.com/rordenlab/dcm2niix
+
+# MRIQC - MRI Quality Control tool
+# Used for: Automated quality control metrics generation
+MRIQC==24.0.2
+# Installation: pip install mriqc or use Neurodesk
+# Documentation: https://mriqc.readthedocs.io/
+
+# ========================================
+# RUNTIME ENVIRONMENTS (REQUIRED)
+# ========================================
+
+# Conda/Miniconda - Package manager
+# Used for: Installing deno and other dependencies
+conda>=4.10.0
+# Installation: https://docs.conda.io/en/latest/miniconda.html
+
+# Deno - JavaScript/TypeScript runtime
+# Used for: BIDS validation
+deno>=1.0.0
+# Installation: conda install -c conda-forge deno
+# Note: Critical for BIDS validation - pipeline will fail without this
+
+# ========================================
+# OPTIONAL SOFTWARE (RECOMMENDED)
+# ========================================
+
+# FreeSurfer - Structural analysis and registration
+# Used for: Boundary-based registration (bbregister command)
+# Note: Can use FSL FLIRT as alternative if FreeSurfer unavailable
+FreeSurfer>=7.0.0
+# Installation: https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall
+# License: Free registration required
+
+# FSLeyes - FSL image viewer
+# Used for: Visual quality control and inspection
+FSLeyes>=1.0.0
+# Installation: pip install fsleyes or conda install -c conda-forge fsleyes
+
+# ========================================
+# PLATFORM REQUIREMENTS
+# ========================================
+
+# Neurodesk - Browser-based neuroimaging platform (RECOMMENDED)
+# Provides: Pre-installed neuroimaging software environment
+# Access: https://www.neurodesk.org/
+# Note: All software dependencies available through Neurodesk
+
+# ========================================
+# SYSTEM REQUIREMENTS
+# ========================================
+
+# Hardware Requirements:
+# - RAM: Minimum 16GB (32GB recommended for large datasets)
+# - CPU: 4+ cores recommended (scripts use --n_procs 4)
+# - Storage: 3-5x raw data size for intermediate files
+# - Network: Internet connection for software downloads and validation
+
+# Operating System:
+# - Linux (Ubuntu 18.04+ recommended)
+# - macOS (10.14+)
+# - Windows (via WSL2 or Docker)
+
+# ========================================
+# PIPELINE-SPECIFIC PARAMETERS
+# ========================================
+
+# Data Format Requirements:
+# - Input: DICOM format
+# - Output: BIDS format, NIfTI (.nii.gz)
+# - TR: 2.0s (adjustable in scripts)
+# - Slice order: Odd (adjustable in scripts)
+
+# Processing Parameters Used:
+# - Smoothing: 5mm FWHM (2.12 sigma)
+# - High-pass filter: 100s (0.01 Hz)
+# - Standard space: MNI152 2mm
+# - Motion correction: MCFLIRT
+# - Registration: FLIRT/FNIRT
+
+# ========================================
+# VALIDATION TOOLS
+# ========================================
+
+# BIDS Validator (via Deno)
+# Command: deno run -ERWN jsr:@bids/validator
+# Purpose: Ensure dataset compliance with BIDS specification
+
+# ========================================
+# INSTALLATION VERIFICATION
+# ========================================
+
+# To verify your installation, run these commands:
+# fsl --version                    # Should show FSL 6.0.7
+# dcm2niix -h                     # Should show help message
+# conda --version                 # Should show conda version
+# deno --version                  # Should show deno version
+# which mriqc                     # Should show mriqc path
+# echo $FSLDIR                    # Should show FSL directory
+
+# ========================================
+# TROUBLESHOOTING NOTES
+# ========================================
+
+# Common Issues:
+# 1. "FSL not found" - Ensure FSLDIR environment variable is set
+# 2. "deno command not found" - Install deno via conda
+# 3. "MRIQC failed" - Check memory allocation (increase --mem_gb if needed)
+# 4. "Permission denied" - Make scripts executable: chmod +x *.sh
+# 5. "No space left" - Ensure sufficient disk space for intermediate files
+
+# Memory Management:
+# - MRIQC: Uses --mem_gb 16 (adjust based on available RAM)
+# - FSL: Can be memory intensive for large datasets
+# - Consider using cluster computing for datasets >20 subjects
+
+# ========================================
+# TEAM-SPECIFIC NOTES
+# ========================================
+
+# Study Parameters (UPDATE THESE):
+# - Study name: [FMRISTUDY]
+# - Number of subjects: [our N]
+# - Scanner: [Scanner type and field strength]
+# - Acquisition parameters: [TR, TE, voxel size, etc.]
+
+# Team Repository:
+# - GitHub: [insert repository URL]
+# - Protocol.io: https://protocols.io/view/bids-quality-control-and-pre-processing-pipeline-f-g8hpbzt5p
+
+# ========================================
+# REFERENCES
+# ========================================
+
+# Key Papers:
+# - FSL: Smith et al. (2004) NeuroImage 23:S208-S219
+# - MRIQC: Esteban et al. (2017) PLoS ONE 12(9):e0184661
+# - BIDS: Gorgolewski et al. (2016) Sci Data 3:160044
+# - fMRIPrep: Esteban et al. (2019) Nat Methods 16:111-116
+
+# Software Websites:
+# - FSL: https://fsl.fmrib.ox.ac.uk/
+# - MRIQC: https://mriqc.readthedocs.io/
+# - BIDS: https://bids.neuroimaging.io/
+# - dcm2niix: https://github.com/rordenlab/dcm2niix
+# - Neurodesk: https://www.neurodesk.org/
