@@ -2,12 +2,14 @@
 
 Mercy Nathaniel - \[Ahmadu Bello University], \[Zaria], \[Nigeria]
 
+Kimberley Clare Williams - \[Neuroscience Institute], \[University of Cape Town], \[Cape Town], \[South Africa]
+
+Usman Mohammed Mahmud - \[Federal Teaching Hospital], \[Gombe], \[Nigeria]
+
 Musbau Mubarak Remilekun - \[University of maiduguri], \[Maiduguri], \[Nigeria]
 
 Nuwe Bryant Nyero - \[Mbarara University of Science and Technology], \[Mbarara], \[Uganda]
 
-Kimberley Clare Williams - \[Neuroscience Institute], \[University of Cape Town], \[Cape Town], \[South Africa]
-
 Wirba Amabel Ginjeh -\[Cameroon Baptist Convention], \[Douala], \[Cameroon]
 
-Usman Mohammed Mahmud - \[Federal Teaching Hospital], \[Gombe], \[Nigeria]
+
