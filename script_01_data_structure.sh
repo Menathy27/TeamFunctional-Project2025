@@ -6,7 +6,7 @@
 # Usage: bash 01_data_structure.sh
 
 # Set up environment variables
-export FMRISTUDY="your_study_name"  # Change this to your actual study name
+export FMRISTUDY="connexin_bootcamp_analysis"  # Change this to your actual study name
 export BIDSOUTPUT="BIDS_output"
 export RAWDATA="RAWDATA"
 
